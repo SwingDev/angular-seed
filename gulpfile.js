@@ -30,7 +30,7 @@ gulp.task("compile_public", function() {
 gulp.task("compile_bower", function() {
   return merge(
     gulp.src(mbf(), { base: 'app/bower_components'}).pipe(concat('vendor.js')).pipe(gulp.dest('build/scripts')),
-    gulp.src(['app/bower_components/**/*']).pipe(gulp.dest('./build')) // copy all of them until we figure out something better
+    gulp.src(['app/bower_components/**/*']).pipe(gulp.dest('./build/bower_components')) // copy all of them until we figure out something better
     );
 });
 
@@ -49,7 +49,7 @@ gulp.task("compile_less", function() {
 gulp.task('compile', ['compile_less', 'compile_public', 'compile_bower']);
 
 gulp.task("watch", function() {
-    watch({ glob: 'app/styles/**/*.less' },     ['compile_compass']);
+    watch({ glob: 'app/styles/**/*.less' },     ['compile_less']);
     watch({ glob: 'app/scripts/**/*.js'},       ['compile_public']);
     watch({ glob: 'app/assets/**/*' },          ['compile_public']); 
     watch({ glob: 'app/bower_components/**/*'}, ['compile_bower']);
