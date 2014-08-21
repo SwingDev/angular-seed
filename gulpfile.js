@@ -21,7 +21,9 @@ gulp.task("compile_public", function() {
         .pipe(plumber({ errorHandler: onError }))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
+        .pipe(sourcemaps.init())
         .pipe(concat('tf-site.js'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./build/scripts')),
       gulp.src(['app/assets/**/*']).pipe(gulp.dest('./build'))
     );
