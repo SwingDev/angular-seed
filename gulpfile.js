@@ -8,7 +8,8 @@ var gulp       = require('gulp');
     jshint     = require('gulp-jshint');
     stylish    = require('jshint-stylish');
     less       = require('gulp-less');
-    sourcemaps = require('gulp-sourcemaps')
+    sourcemaps = require('gulp-sourcemaps');
+    removeUst  = require('gulp-remove-use-strict');
 
 var onError = function (err) {
   gutil.beep();
@@ -24,6 +25,7 @@ gulp.task("compile_public", function() {
         .pipe(sourcemaps.init())
         .pipe(concat('tf-site.js'))
         .pipe(sourcemaps.write())
+        .pipe(removeUst())
         .pipe(gulp.dest('./build/scripts')),
       gulp.src(['app/assets/**/*']).pipe(gulp.dest('./build'))
     );
