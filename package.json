@@ -19,7 +19,7 @@
     "jshint-stylish": "^0.4.0",
     "karma": "~0.10",
     "karma-junit-reporter": "^0.2.2",
-    "main-bower-files": "^1.0.4",
+    "main-bower-files": "^2.0.0",
     "merge-stream": "^0.1.5",
     "protractor": "~0.20.1",
     "shelljs": "^0.2.6"
